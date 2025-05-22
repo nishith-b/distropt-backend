@@ -4,21 +4,15 @@ const {} = require("../../middlewares");
 const router = express.Router();
 
 // /api/v1/distributions POST
-router.post(
-  "/",
-  //AirplaneMiddleware.validateCreateRequest,
-  DistributionController.createDistribution
-);
+router.post("/", DistributionController.createDistribution);
 
-/* // /api/v1/airplanes GET
-router.get("/", AirplaneController.getAirplanes);
+// /api/v1/distributions GET
+router.get("/", DistributionController.getDistributions);
 
-// /api/v1/airplanes/:id GET
-router.get("/:id", AirplaneController.getAirplane);
+// /api/v1/distributions/:id GET
+router.get("/:id", DistributionController.getDistributions);
 
-// /api/v1/airplanes/:id DELETE
-router.delete("/:id", AirplaneController.destroyAirplane);
-
-*/
+// /api/v1/distributions/:id DELETE
+router.delete("/:id", DistributionController.deleteDistributions);
 
 module.exports = router;
