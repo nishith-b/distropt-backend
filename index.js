@@ -1,8 +1,10 @@
 const express = require("express");
 const apiRoutes = require("./routes");
 const { ServerConfig } = require("./config");
+const { DBConfig } = require("./config");
 
 const app = express();
+DBConfig.connectDB();
 
 app.use("/api", apiRoutes);
 
