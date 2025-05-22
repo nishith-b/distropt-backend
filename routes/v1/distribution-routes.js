@@ -15,4 +15,7 @@ router.get("/:id", DistributionController.getDistributions);
 // /api/v1/distributions/:id DELETE
 router.delete("/:id", DistributionController.deleteDistributions);
 
+// /api/v1/distributions/:id PATCH
+router.patch("/:id", DistributionController.updateDistribution);
+
 module.exports = router;

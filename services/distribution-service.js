@@ -52,9 +52,22 @@ async function deleteDistribution(data) {
   }
 }
 
+async function updateDistribution(id, data) {
+  try {
+    const distribution = await distributionRepository.update(id, data);
+    return distribution;
+  } catch (error) {
+    throw new AppError(
+      "Cannot update a Distribution",
+      StatusCodes.INTERNAL_SERVER_ERROR
+    );
+  }
+}
+
 module.exports = {
   createDistribution,
   getDistribution,
   getDistributions,
   deleteDistribution,
+  updateDistribution,
 };
