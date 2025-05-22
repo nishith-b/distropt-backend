@@ -4,6 +4,9 @@ const { ServerConfig } = require("./config");
 const { DBConfig } = require("./config");
 
 const app = express();
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
 DBConfig.connectDB();
 
 app.use("/api", apiRoutes);
