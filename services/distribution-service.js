@@ -64,10 +64,32 @@ async function updateDistribution(id, data) {
   }
 }
 
+async function archiveDistribution(id) {
+  try {
+    const distribution = await distributionRepository.get(id);
+    if (!distribution) {
+      throw new AppError("Distribution not found", StatusCodes.NOT_FOUND);
+    }
+    const { name, version, release_date, features } = distribution;
+    const data = { name, version, release_date, features };
+    const archived = await distributionRepository.archiveDistribution(data);
+    if (archived) {
+      await distributionRepository.destroy(id);
+    }
+    return archived;
+  } catch (error) {
+    throw new AppError(
+      "Cannot archive a Distribution",
+      StatusCodes.INTERNAL_SERVER_ERROR
+    );
+  }
+}
+
 module.exports = {
   createDistribution,
   getDistribution,
   getDistributions,
   deleteDistribution,
   updateDistribution,
+  archiveDistribution,
 };
