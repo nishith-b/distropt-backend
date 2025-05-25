@@ -16,7 +16,11 @@ async function createUser(data) {
     );
   }
 }
+async function authenticateUser(data) {
+  
+}
 
 module.exports = {
   createUser,
+  authenticateUser
 };

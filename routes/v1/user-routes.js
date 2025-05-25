@@ -3,10 +3,10 @@ const { UserController } = require("../../controllers");
 const router = express.Router();
 
 // /api/v1/user POST
-router.post("/", UserController.createUser);
+router.post("/signup", UserController.createUser);
 
-// /api/v1/user GET
-router.get("/", UserController.createUser);
+// /api/v1/user POST
+router.post("/login", UserController.authenticateUser);
 
 // /api/v1/user GET
 router.get("/:id", UserController.createUser);

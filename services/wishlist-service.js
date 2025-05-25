@@ -6,18 +6,7 @@ const wishlistRepository = new WishlistRepository();
 
 async function addToWishlist(data) {
   try {
-    const wishlist = await wishlistRepository.create(data);
-    return wishlist;
-  } catch (error) {
-    throw new AppError(
-      "Cannot create a archived",
-      StatusCodes.INTERNAL_SERVER_ERROR
-    );
-  }
-}
-
-async function getWishlists() {
-  try {
+    console.log("Hello Agian");
     const wishlist = await wishlistRepository.create(data);
     return wishlist;
   } catch (error) {
@@ -27,13 +16,25 @@ async function getWishlists() {
     );
   }
 }
-async function deleteWishlist() {
+
+async function getByUserId(userId) {
   try {
-    const wishlist = await wishlistRepository.create();
+    const wishlist = await wishlistRepository.getAllItems(userId);
     return wishlist;
   } catch (error) {
     throw new AppError(
-      "Cannot create a archived",
+      "Cannot find wishlist",
+      StatusCodes.INTERNAL_SERVER_ERROR
+    );
+  }
+}
+async function removeDistribution(id) {
+  try {
+    const wishlist = await wishlistRepository.destroy(id);
+    return wishlist;
+  } catch (error) {
+    throw new AppError(
+      "Cannot Remove an Distribution From Wishlist",
       StatusCodes.INTERNAL_SERVER_ERROR
     );
   }
@@ -41,4 +42,6 @@ async function deleteWishlist() {
 
 module.exports = {
   addToWishlist,
+  getByUserId,
+  removeDistribution,
 };

@@ -7,9 +7,9 @@ const router = express.Router();
 router.post("/", WishlistController.addToWishlist);
 
 // /api/v1/archived GET
-router.get("/", WishlistController.addToWishlist);
+router.get("/", WishlistController.getByUserId);
 
 // /api/v1/archived/:id DELETE
-router.delete("/:id", WishlistController.addToWishlist);
+router.delete("/:id", WishlistController.removeDistribution);
 
 module.exports = router;
