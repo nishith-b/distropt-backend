@@ -3,4 +3,5 @@ module.exports = {
   DistributionController: require("./distribution-controller"),
   ArchivedController: require("./archived-controller"),
   WishlistController: require("./wishlist-controller"),
+  UserController: require("./user-controller"),
 };
