@@ -4,4 +4,5 @@ module.exports = {
   ArchivedController: require("./archived-controller"),
   WishlistController: require("./wishlist-controller"),
   UserController: require("./user-controller"),
+  RecommendationController: require("./recommendation-controller"),
 };

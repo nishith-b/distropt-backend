@@ -7,6 +7,7 @@ const distributionRoutes = require("./distribution-routes");
 const archivedRoutes = require("./archived-routes");
 const wishlistRoutes = require("./wishlist-routes");
 const userRoutes = require("./user-routes");
+const recommendationRoutes = require("./recommendation-routes");
 
 router.get("/info", InfoController.info);
 
@@ -17,5 +18,7 @@ router.use("/archived", archivedRoutes);
 router.use("/wishlist", wishlistRoutes);
 
 router.use("/user", userRoutes);
+
+router.use("/recommendations", recommendationRoutes);
 
 module.exports = router;

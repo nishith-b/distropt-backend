@@ -1,23 +1,22 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const distributionOptionMappingSchema = new mongoose.Schema({
-  distributionId: {
-    type: mongoose.Schema.Types.ObjectId, // or String if you're not using ObjectId
-    required: true,
-    ref: 'Distribution' // Optional reference to Distribution model
-  },
   optionId: {
-    type: mongoose.Schema.Types.ObjectId, // or String
+    type: mongoose.Schema.Types.ObjectId,
     required: true,
-    ref: 'Option' // Optional reference to Option model
-  }
-}, {
-  timestamps: true
+  },
+  questionId: {
+    type: mongoose.Schema.Types.ObjectId,
+    required: true,
+  },
+  distributionId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Distribution",
+    required: true,
+  },
 });
 
-const DistributionOptionMapping = mongoose.model(
-  'DistributionOptionMapping',
+module.exports = mongoose.model(
+  "DistributionOptionMapping",
   distributionOptionMappingSchema
 );
-
-module.exports = DistributionOptionMapping;

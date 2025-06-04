@@ -4,4 +4,5 @@ module.exports = {
   ArchivedVersionRepository: require("./archived-repository"),
   WishlistRepository: require("./wishlist-repository"),
   UserRepository: require("./user-repository"),
+  RecommendationRepository: require("./recommendation-repository"),
 };
