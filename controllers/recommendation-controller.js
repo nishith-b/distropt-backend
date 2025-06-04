@@ -18,6 +18,23 @@ async function getOptionIds(req, res) {
   }
 }
 
+async function getRecommendations(req, res) {
+  try {
+    const limit = req.body.limit || 1;
+    const userId = req.body.userId || req.userId;
+    const response = await RecommendationService.getRecommendations({
+      limit,
+      userId,
+    });
+    SuccessResponse.data = response;
+    return res.json(SuccessResponse).status(StatusCodes.CREATED);
+  } catch (error) {
+    ErrorResponse.error = error;
+    return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json(ErrorResponse);
+  }
+}
+
 module.exports = {
   getOptionIds,
+  getRecommendations,
 };
