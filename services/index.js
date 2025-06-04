@@ -5,4 +5,5 @@ module.exports = {
   UserService: require("./user-service"),
   UserResponseService: require("./user-response-service"),
   RecommendationService: require("./recommendation-service"),
+  QuestionService: require("./question-service"),
 };

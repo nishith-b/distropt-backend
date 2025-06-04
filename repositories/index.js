@@ -6,4 +6,5 @@ module.exports = {
   UserRepository: require("./user-repository"),
   UserResponseRepository: require("./user-response-repoitory"),
   RecommendationRepository: require("./recommendation-repository"),
+  QuestionRepository: require("./questions-repository"),
 };

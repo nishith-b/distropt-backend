@@ -6,4 +6,5 @@ module.exports = {
   UserController: require("./user-controller"),
   RecommendationController: require("./recommendation-controller"),
   UserResponseController: require("./user-response-controller"),
+  QuestionController: require("./question-controller"),
 };
