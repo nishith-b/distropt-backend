@@ -3,5 +3,6 @@ module.exports = {
   ArchivedVersionService: require("./archived-service"),
   WishlistService: require("./wishlist-service"),
   UserService: require("./user-service"),
+  UserResponseService: require("./user-response-service"),
   RecommendationService: require("./recommendation-service"),
 };
