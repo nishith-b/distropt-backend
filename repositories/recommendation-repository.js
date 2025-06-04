@@ -1,13 +1,30 @@
 const CrudRepository = require("./crud-repository");
-const { UserResponse } = require("../models");
+const {
+  UserResponse,
+  DistributionOptionMapping,
+  Distribution,
+} = require("../models");
 const AppError = require("../utils/errors/app-error");
 const { StatusCodes } = require("http-status-codes");
 
-  // Get all selected option IDs for a user (flattened)
- /* async getOptionIds(userId) {
+class RecommendationRepository {
+  async getOptionIds(data) {
     try {
+      // Extract userId (or other filters) from data
+      const { userId } = data;
+
+      if (!userId) {
+        throw new AppError("User ID is required", StatusCodes.BAD_REQUEST);
+      }
+
+      //Find all responses by this user
       const responses = await UserResponse.find({ userId });
-      const selectedOptionIds = responses.flatMap(r => r.response);
+
+      // Flatten all selected option IDs (assuming response field holds option IDs)
+      const selectedOptionIds = responses.flatMap((r) => r.selectedOptionIds);
+
+      console.log(selectedOptionIds);
+      console.log(responses);
       return selectedOptionIds;
     } catch (error) {
       console.error(error);
@@ -17,4 +34,6 @@ const { StatusCodes } = require("http-status-codes");
       );
     }
   }
-    */
+}
+
+module.exports = RecommendationRepository;

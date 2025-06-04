@@ -4,9 +4,8 @@ const { StatusCodes } = require("http-status-codes");
 
 async function optionEntry(req, res) {
   try {
-    console.log(req.body)
     const { userId, questionId, selectedOptionIds } = req.body;
-    
+
     const response = UserResponseService.optionEntry({
       userId,
       questionId,
